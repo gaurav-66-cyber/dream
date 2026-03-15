@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEGACY MUSEUM • Heroes & Martyrs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Cinzel:wght@400;700&amp;display=swap');
+    body { 
+      font-family: 'Cinzel', serif; 
+      background: #1a120b; 
+      color: #f5e8c7; 
+    }
+    .vintage-text { font-family: 'Playfair Display', serif; }
+    .museum-bg { 
+      background: linear-gradient(rgba(26,18,11,0.92), rgba(26,18,11,0.92)), 
+                  url('https://picsum.photos/id/1015/2000/1200') center/cover; 
+    }
+    .card { 
+      transition: all 0.5s ease; 
+      border: 3px solid #8c6f4e; 
+      background: #2c2118;
+    }
+    .card:hover { 
+      transform: scale(1.05) rotate(1deg); 
+      box-shadow: 0 0 40px rgba(140,111,78,0.7); 
+    }
+    .aged-paper { 
+      background: #f5e8c7; 
+      color: #3c2f1e; 
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.4); 
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      background: #8c6f4e;
+      bottom: -8px;
+      left: 20%;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full bg-[#2c2118]/95 backdrop-blur-md z-50 border-b border-[#8c6f4e]">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-landmark text-4xl text-[#d4a017]"></i>
+        <h1 class="vintage-text text-4xl tracking-widest text-[#d4a017]">LEGACY</h1>
+      </div>
+      
+      <div class="hidden md:flex gap-10 text-sm tracking-widest font-medium">
+        <a href="#home" class="hover:text-[#d4a017] transition">HOME</a>
+        <a href="#heroes" class="hover:text-[#d4a017] transition">GALLERY</a>
+        <a href="#about" class="hover:text-[#d4a017] transition">ABOUT US</a>
+        <a href="#vision" class="hover:text-[#d4a017] transition">OUR VISION</a>
+        <a href="#contact" class="hover:text-[#d4a017] transition">CONTACT</a>
+      </div>
+      <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#d4a017]"><i class="fa-solid fa-bars"></i></button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#2c2118] px-6 py-6 border-t border-[#8c6f4e]">
+      <a href="#home" onclick="toggleMobileMenu()" class="block py-4 hover:text-[#d4a017]">HOME</a>
+      <a href="#heroes" onclick="toggleMobileMenu()" class="block py-4 hover:text-[#d4a017]">GALLERY</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-4 hover:text-[#d4a017]">ABOUT US</a>
+      <a href="#vision" onclick="toggleMobileMenu()" class="block py-4 hover:text-[#d4a017]">OUR VISION</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block py-4 hover:text-[#d4a017]">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION with Vintage Voice -->
+  <section id="home" class="museum-bg h-screen flex items-center relative">
+    <div class="max-w-5xl mx-auto px-6 text-center z-10">
+      <div class="aged-paper inline-block px-14 py-10 mb-12 rounded border-4 border-[#8c6f4e] shadow-2xl">
+        <h2 class="vintage-text text-7xl md:text-8xl leading-none tracking-tighter mb-4 text-[#3c2f1e]">
+          THE UNCOVERED TRUTH
+        </h2>
+        <p class="text-3xl text-[#8c6f4e] italic tracking-wide">Digital Museum of Great Heroes &amp; Martyrs</p>
+      </div>
+
+      <button onclick="speakWelcome()" 
+              class="group inline-flex items-center gap-6 bg-[#3c2f1e] hover:bg-[#d4a017] hover:text-[#3c2f1e] border-4 border-[#d4a017] px-20 py-8 text-2xl font-bold transition-all active:scale-95">
+        <i class="fa-solid fa-volume-high text-4xl group-active:animate-pulse"></i>
+        ENTER THE MUSEUM
+      </button>
+      
+      <p class="mt-10 text-[#8c6f4e] text-sm tracking-[4px]">Click to hear the voice of history</p>
+    </div>
+
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#d4a017] animate-bounce">
+      <i class="fa-solid fa-chevron-down text-4xl"></i>
+    </div>
+  </section>
+
+  <!-- HEROES GALLERY -->
+  <section id="heroes" class="py-24 bg-[#2c2118]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="vintage-text text-6xl section-title text-[#d4a017]">Heroes &amp; Martyrs</h3>
+        <p class="text-[#8c6f4e] mt-4 text-xl">7 Countries • 7 Heroes Each • Their Role • Reforms • Sacrifices</p>
+      </div>
+
+      <!-- Country Tabs -->
+      <div class="flex flex-wrap gap-3 justify-center mb-12" id="countryTabs">
+        <!-- Generated by JS -->
+      </div>
+
+      <div id="heroesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <!-- Heroes cards generated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section id="about" class="py-24 bg-[#1a120b]">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="vintage-text text-6xl section-title text-[#d4a017] mb-12">About Us</h3>
+      <div class="aged-paper p-12 rounded border-2 border-[#8c6f4e] text-[#3c2f1e] max-w-3xl mx-auto">
+        <p class="text-lg leading-relaxed">We are young students and developers from Kathmandu who built this digital museum to honor the world's greatest heroes and martyrs. Their sacrifices lit the path of freedom, unity, and justice that we walk today.</p>
+        <p class="mt-8 text-lg leading-relaxed">This entire website is contained in a single HTML file — pure HTML, CSS &amp; JavaScript. No server needed. You can save it and open it anytime, even without internet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VISION - Updated with your text (under 5 lines) -->
+  <section id="vision" class="py-24 bg-[#2c2118]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h3 class="vintage-text text-6xl section-title text-[#d4a017] mb-12">Our Vision</h3>
+          <div class="space-y-8 text-lg">
+            <p class="text-[#f5e8c7]">We remember every hero who sacrificed their life, freedom, and comfort so that we could stand here today in peace and dignity.</p>
+            <p class="text-[#f5e8c7]">Their courage, reforms, and ultimate sacrifices built the world we live in. This digital museum keeps their stories alive for future generations.</p>
+            <p class="text-[#f5e8c7]">May their legacy inspire us to be brave, just, and united.</p>
+          </div>
+        </div>
+        <div class="aged-paper p-12 border-4 border-[#8c6f4e] text-center text-[#3c2f1e]">
+          <div class="text-7xl mb-8">🇳🇵 🇮🇳 🇺🇸 🇿🇦 🇫🇷 🇬🇧 🇯🇵</div>
+          <p class="text-3xl font-medium">7 Countries • 49 Legends</p>
+          <p class="mt-6 italic">Their blood wrote history. Their courage lights our future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT - Updated with your email and suggestion text -->
+  <section id="contact" class="py-24 bg-[#1a120b]">
+    <div class="max-w-2xl mx-auto px-6">
+      <h3 class="vintage-text text-6xl section-title text-[#d4a017] text-center mb-12">Get In Touch</h3>
+      <form onsubmit="handleSubmit(event)" class="aged-paper p-10 border-4 border-[#8c6f4e]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="text" placeholder="Your Name" required class="bg-transparent border-b-2 border-[#3c2f1e] focus:border-[#d4a017] py-4 text-lg outline-none">
+          <input type="email" placeholder="Your Email" required class="bg-transparent border-b-2 border-[#3c2f1e] focus:border-[#d4a017] py-4 text-lg outline-none">
+        </div>
+        <textarea placeholder="Your Message, Suggestions, or New Heroes/Countries to Add..." rows="6" required class="w-full bg-transparent border-b-2 border-[#3c2f1e] focus:border-[#d4a017] py-4 mt-8 text-lg outline-none resize-none"></textarea>
+        <button type="submit" class="mt-10 w-full bg-[#d4a017] hover:bg-[#3c2f1e] hover:text-[#d4a017] text-[#3c2f1e] font-bold py-6 text-xl transition">SEND MESSAGE</button>
+      </form>
+      
+      <div class="aged-paper mt-12 p-8 text-center text-[#3c2f1e]">
+        <p class="text-lg">For more information or suggestions:</p>
+        <p class="mt-4 text-xl font-medium">Email us at: <a href="mailto:kunwargaurav832@gmail.com" class="underline hover:text-[#d4a017]">kunwargaurav832@gmail.com</a></p>
+        <p class="text-sm mt-6">We welcome your ideas to add more countries and heroes. Together we keep their legacy alive.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#1a120b] py-12 text-center text-[#8c6f4e] border-t border-[#8c6f4e]">
+    Made with respect in Kathmandu, Nepal • Single HTML file • Vintage Historic Edition • Role • Reform • Sacrifice
+  </footer>
+
+  <!-- HERO MODAL -->
+  <div id="heroModal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-[9999] p-6">
+    <div class="aged-paper max-w-3xl w-full border-8 border-[#8c6f4e] overflow-hidden">
+      <div class="relative">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-4xl text-[#3c2f1e] hover:text-red-800 z-20">✕</button>
+        <img id="modalImage" class="w-full h-80 object-cover border-b-8 border-[#8c6f4e]">
+        
+        <div class="p-12">
+          <div id="modalCountry" class="flex items-center gap-4 text-3xl mb-4"></div>
+          <h2 id="modalName" class="vintage-text text-5xl text-[#3c2f1e] font-bold"></h2>
+          
+          <div class="my-8 h-px bg-[#8c6f4e]"></div>
+          
+          <div id="modalRole" class="mb-6">
+            <span class="text-[#d4a017] font-medium">ROLE:</span> <span id="roleText" class="text-[#3c2f1e]"></span>
+          </div>
+          <div id="modalReform" class="mb-6">
+            <span class="text-[#d4a017] font-medium">REFORMS:</span> <span id="reformText" class="text-[#3c2f1e]"></span>
+          </div>
+          <div id="modalSacrifice" class="mb-6">
+            <span class="text-[#d4a017] font-medium">SACRIFICE:</span> <span id="sacrificeText" class="text-[#3c2f1e]"></span>
+          </div>
+          
+          <div class="mt-10 bg-[#2c2118] p-8 border-l-8 border-[#d4a017]">
+            <p id="modalQuote" class="italic text-xl text-[#d4a017]"></p>
+            <p class="text-xs text-[#8c6f4e] mt-4">— Eternal words</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Heroes Data (unchanged - full role/reform/sacrifice)
+    const heroesData = {
+      "Nepal": [
+        { 
+          name: "Prithvi Narayan Shah", 
+          image: "https://picsum.photos/id/1015/800/600", 
+          shortDesc: "Unifier of Nepal", 
+          role: "King and visionary leader who unified fragmented principalities",
+          reforms: "Established modern Nepal, promoted unity among diverse castes and regions",
+          sacrifice: "Fought numerous battles, risked his life and kingdom for national unity",
+          quote: "Nepal is a garden of four varnas and thirty-six castes. Let all live in harmony."
+        },
+        { 
+          name: "Bhimsen Thapa", 
+          image: "https://picsum.photos/id/102/800/600", 
+          shortDesc: "First Prime Minister & Defender", 
+          role: "Prime Minister and military strategist who modernized administration",
+          reforms: "Introduced military reforms, built roads, strengthened central government",
+          sacrifice: "Imprisoned and died in exile after political conspiracy against him",
+          quote: "We shall never bow to foreign domination."
+        },
+        { 
+          name: "Balbhadra Kunwar", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Hero of Nalapani", 
+          role: "Gorkhali commander in Anglo-Nepalese War",
+          reforms: "Exemplified fearless defense and guerrilla tactics",
+          sacrifice: "Fought to the last man at Nalapani fort against overwhelming British forces",
+          quote: "We fight till the last drop of blood."
+        },
+        { 
+          name: "Amar Singh Thapa", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "General of Western Front", 
+          role: "Brave general who expanded and defended Nepal's borders",
+          reforms: "Strengthened border defenses and military discipline",
+          sacrifice: "Lost many comrades and eventually committed suicide after territorial losses",
+          quote: "Victory or death - no surrender."
+        },
+        { 
+          name: "Laxmi Prasad Devkota", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Mahakavi (Great Poet)", 
+          role: "Literary giant and social reformer through poetry",
+          reforms: "Promoted education, criticized social evils like untouchability",
+          sacrifice: "Lived in poverty and ill-health while dedicating life to literature",
+          quote: "Literature is the mirror of society."
+        },
+        { 
+          name: "Pushpa Lal Shrestha", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Founder of Communist Movement", 
+          role: "Pioneer of progressive and democratic politics",
+          reforms: "Laid foundation for communist party and workers' rights",
+          sacrifice: "Exiled for decades, faced imprisonment and constant threat",
+          quote: "The people shall rise."
+        },
+        { 
+          name: "Ganga Lal Shrestha", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "Martyr of Democracy", 
+          role: "Young revolutionary who demanded democratic rights",
+          reforms: "Fought against Rana autocracy for people's rights",
+          sacrifice: "Executed by firing squad at age 24 in 1941",
+          quote: "Freedom is worth dying for."
+        }
+      ],
+      "India": [
+        { 
+          name: "Mahatma Gandhi", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "Father of the Nation", 
+          role: "Leader of non-violent independence movement",
+          reforms: "Introduced Satyagraha, promoted communal harmony and self-reliance",
+          sacrifice: "Fasted multiple times, imprisoned, and assassinated in 1948",
+          quote: "Be the change you wish to see in the world."
+        },
+        { 
+          name: "Bhagat Singh", 
+          image: "https://picsum.photos/id/29/800/600", 
+          shortDesc: "Revolutionary Martyr", 
+          role: "Armed freedom fighter against British rule",
+          reforms: "Inspired youth through writings on socialism and revolution",
+          sacrifice: "Hanged by British at age 23 in 1931",
+          quote: "Bomb and pistol are not the only weapons."
+        },
+        { 
+          name: "Subhas Chandra Bose", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Netaji", 
+          role: "Leader of Indian National Army",
+          reforms: "Organized armed struggle and women's regiment",
+          sacrifice: "Died in plane crash while fighting for freedom",
+          quote: "Give me blood and I will give you freedom."
+        },
+        { 
+          name: "Sardar Vallabhbhai Patel", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Iron Man of India", 
+          role: "Unifier of princely states",
+          reforms: "Integrated 565 states into modern India",
+          sacrifice: "Worked tirelessly till his death from overwork",
+          quote: "Every Indian should forget he is a Rajput or Sikh."
+        },
+        { 
+          name: "Rani Lakshmibai", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Warrior Queen of Jhansi", 
+          role: "Leader in 1857 Revolt",
+          reforms: "Fought for women's rights and against annexation",
+          sacrifice: "Died fighting on battlefield with sword in hand",
+          quote: "I shall not surrender my Jhansi."
+        },
+        { 
+          name: "Dr. B.R. Ambedkar", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Architect of Constitution", 
+          role: "Champion of social justice and Dalit rights",
+          reforms: "Drafted Indian Constitution, fought caste discrimination",
+          sacrifice: "Faced lifelong social boycott and health issues",
+          quote: "Educate, Agitate, Organize."
+        },
+        { 
+          name: "Jawaharlal Nehru", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "First Prime Minister", 
+          role: "Architect of modern democratic India",
+          reforms: "Promoted secularism, science and industrialization",
+          sacrifice: "Imprisoned for years during freedom struggle",
+          quote: "The future belongs to the youth."
+        }
+      ],
+      "USA": [
+        { 
+          name: "Martin Luther King Jr.", 
+          image: "https://picsum.photos/id/29/800/600", 
+          shortDesc: "Civil Rights Leader", 
+          role: "Non-violent crusader for racial equality",
+          reforms: "Led Civil Rights Movement, Voting Rights Act",
+          sacrifice: "Assassinated in 1968 while fighting for justice",
+          quote: "I have a dream..."
+        },
+        { 
+          name: "Abraham Lincoln", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "Emancipator President", 
+          role: "Leader who preserved the Union",
+          reforms: "Abolished slavery through Emancipation Proclamation",
+          sacrifice: "Assassinated in 1865 after Civil War victory",
+          quote: "Government of the people, by the people."
+        },
+        { 
+          name: "George Washington", 
+          image: "https://picsum.photos/id/1015/800/600", 
+          shortDesc: "Father of the United States", 
+          role: "Commander of Revolutionary Army and first President",
+          reforms: "Established democratic institutions and peaceful transition of power",
+          sacrifice: "Risked life in long Revolutionary War",
+          quote: "Liberty and justice for all."
+        },
+        { 
+          name: "Harriet Tubman", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Underground Railroad Conductor", 
+          role: "Escaped slave who freed hundreds",
+          reforms: "Helped abolish slavery through direct action",
+          sacrifice: "Risked capture and death on 19 dangerous missions",
+          quote: "Every great dream begins with a dreamer."
+        },
+        { 
+          name: "Rosa Parks", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Mother of Civil Rights", 
+          role: "Sparked Montgomery Bus Boycott",
+          reforms: "Challenged racial segregation laws",
+          sacrifice: "Lost job and faced death threats for her stand",
+          quote: "I was tired of giving in."
+        },
+        { 
+          name: "John F. Kennedy", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Inspirational President", 
+          role: "Cold War and space program leader",
+          reforms: "Promoted civil rights and Peace Corps",
+          sacrifice: "Assassinated in 1963",
+          quote: "Ask not what your country can do for you."
+        },
+        { 
+          name: "Thomas Jefferson", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Author of Declaration of Independence", 
+          role: "Founding Father and third President",
+          reforms: "Expanded territory through Louisiana Purchase",
+          sacrifice: "Faced political attacks and personal scandals",
+          quote: "All men are created equal."
+        }
+      ],
+      "South Africa": [
+        { 
+          name: "Nelson Mandela", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Anti-Apartheid Icon", 
+          role: "Leader of armed and political struggle against apartheid",
+          reforms: "Ended apartheid, promoted reconciliation and democracy",
+          sacrifice: "Spent 27 years in prison",
+          quote: "It always seems impossible until it is done."
+        },
+        { 
+          name: "Steve Biko", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "Black Consciousness Leader", 
+          role: "Inspired black pride and resistance",
+          reforms: "Challenged mental slavery and apartheid ideology",
+          sacrifice: "Beaten to death in police custody in 1977",
+          quote: "Black man, you are on your own."
+        },
+        { 
+          name: "Desmond Tutu", 
+          image: "https://picsum.photos/id/29/800/600", 
+          shortDesc: "Archbishop of Peace", 
+          role: "Moral voice against apartheid",
+          reforms: "Led Truth and Reconciliation Commission",
+          sacrifice: "Faced repeated arrests and death threats",
+          quote: "If you are neutral in situations of injustice, you have chosen the side of the oppressor."
+        },
+        { 
+          name: "Chris Hani", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Communist Martyr", 
+          role: "Chief of Staff of Umkhonto we Sizwe",
+          reforms: "Mobilized youth for armed struggle",
+          sacrifice: "Assassinated in 1993 just before democracy",
+          quote: "The struggle continues."
+        },
+        { 
+          name: "Albert Luthuli", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Nobel Peace Laureate", 
+          role: "President of ANC",
+          reforms: "Promoted non-violent resistance",
+          sacrifice: "Banned and restricted for most of his life",
+          quote: "The road to freedom is via the cross."
+        },
+        { 
+          name: "Oliver Tambo", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "ANC Leader in Exile", 
+          role: "Internationalized the anti-apartheid struggle",
+          reforms: "Built global solidarity movement",
+          sacrifice: "Lived in exile for 30 years, suffered stroke",
+          quote: "We shall return."
+        },
+        { 
+          name: "Ruth First", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Anti-Apartheid Scholar", 
+          role: "Journalist and academic activist",
+          reforms: "Exposed apartheid atrocities through writing",
+          sacrifice: "Killed by letter bomb in 1982",
+          quote: "Truth is the first casualty of war."
+        }
+      ],
+      "France": [
+        { 
+          name: "Joan of Arc", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Maid of Orleans", 
+          role: "Military leader who turned the tide in Hundred Years' War",
+          reforms: "Inspired national unity and French identity",
+          sacrifice: "Burned at the stake at age 19 in 1431",
+          quote: "I am not afraid... I was born to do this."
+        },
+        { 
+          name: "Napoleon Bonaparte", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Military Genius & Emperor", 
+          role: "Conqueror who spread revolutionary ideals",
+          reforms: "Napoleonic Code, modern administration, education reforms",
+          sacrifice: "Exiled twice and died in isolation",
+          quote: "Victory belongs to the most persevering."
+        },
+        { 
+          name: "Charles de Gaulle", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Leader of Free France", 
+          role: "Resisted Nazi occupation",
+          reforms: "Founded Fifth Republic and modernized France",
+          sacrifice: "Lived in exile during WWII",
+          quote: "France has lost a battle but not the war."
+        },
+        { 
+          name: "Marie Curie", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "Scientific Pioneer", 
+          role: "Discoverer of radioactivity",
+          reforms: "Advanced science and opened doors for women in STEM",
+          sacrifice: "Died from radiation exposure",
+          quote: "Nothing in life is to be feared, it is only to be understood."
+        },
+        { 
+          name: "Victor Hugo", 
+          image: "https://picsum.photos/id/29/800/600", 
+          shortDesc: "Literary Giant & Activist", 
+          role: "Wrote against injustice",
+          reforms: "Fought for abolition of death penalty and social reform",
+          sacrifice: "Lived 19 years in political exile",
+          quote: "Even the darkest night will end and the sun will rise."
+        },
+        { 
+          name: "Emile Zola", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "Defender of Truth", 
+          role: "Journalist who exposed injustice",
+          reforms: "Advanced naturalism in literature and Dreyfus Affair justice",
+          sacrifice: "Exiled and faced mob violence",
+          quote: "The truth is on the march."
+        },
+        { 
+          name: "Simone de Beauvoir", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Feminist Philosopher", 
+          role: "Intellectual leader of existentialism and feminism",
+          reforms: "Wrote 'The Second Sex' - foundation of modern feminism",
+          sacrifice: "Faced constant criticism and social ostracism",
+          quote: "One is not born, but rather becomes, a woman."
+        }
+      ],
+      "United Kingdom": [
+        { 
+          name: "Winston Churchill", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "WWII Leader", 
+          role: "Prime Minister during World War II",
+          reforms: "Mobilized nation for total war effort",
+          sacrifice: "Worked relentlessly, suffered depression and health issues",
+          quote: "We shall never surrender."
+        },
+        { 
+          name: "Queen Elizabeth I", 
+          image: "https://picsum.photos/id/1015/800/600", 
+          shortDesc: "Gloriana - Golden Age Queen", 
+          role: "Monarch who defeated Spanish Armada",
+          reforms: "Promoted arts, exploration and religious tolerance",
+          sacrifice: "Never married, ruled alone under constant threat",
+          quote: "I know I have the body of a weak woman..."
+        },
+        { 
+          name: "William Shakespeare", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "Greatest Playwright", 
+          role: "Cultural icon who shaped English language",
+          reforms: "Explored human nature through drama",
+          sacrifice: "Lived in plague-ridden times and faced censorship",
+          quote: "To be or not to be."
+        },
+        { 
+          name: "Florence Nightingale", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Lady with the Lamp", 
+          role: "Founder of modern nursing",
+          reforms: "Revolutionized hospital hygiene and nursing profession",
+          sacrifice: "Contracted chronic illness while serving in Crimean War",
+          quote: "Let us never consider ourselves finished nurses."
+        },
+        { 
+          name: "Horatio Nelson", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Naval Hero", 
+          role: "Admiral who won Battle of Trafalgar",
+          reforms: "Innovated naval tactics and inspired loyalty",
+          sacrifice: "Lost arm and eye in battle, died at Trafalgar",
+          quote: "England expects that every man will do his duty."
+        },
+        { 
+          name: "Isaac Newton", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Scientific Genius", 
+          role: "Discoverer of laws of motion and gravity",
+          reforms: "Laid foundation of classical physics",
+          sacrifice: "Worked in isolation during plague, faced mental strain",
+          quote: "If I have seen further, it is by standing on the shoulders of giants."
+        },
+        { 
+          name: "Margaret Thatcher", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "Iron Lady", 
+          role: "First female Prime Minister",
+          reforms: "Transformed economy through privatization and free markets",
+          sacrifice: "Survived assassination attempt and faced intense opposition",
+          quote: "If you want something said, ask a man; if you want something done, ask a woman."
+        }
+      ],
+      "Japan": [
+        { 
+          name: "Sakamoto Ryoma", 
+          image: "https://picsum.photos/id/251/800/600", 
+          shortDesc: "Meiji Restorer", 
+          role: "Samurai who helped end shogunate",
+          reforms: "Paved way for modernization and equality",
+          sacrifice: "Assassinated at age 31 in 1867",
+          quote: "We must change the world with our own hands."
+        },
+        { 
+          name: "Oda Nobunaga", 
+          image: "https://picsum.photos/id/133/800/600", 
+          shortDesc: "Unifier of Japan", 
+          role: "Warlord who began unification",
+          reforms: "Promoted meritocracy and destroyed old power structures",
+          sacrifice: "Betrayed and forced to commit seppuku",
+          quote: "Rule with an iron fist wrapped in velvet."
+        },
+        { 
+          name: "Emperor Meiji", 
+          image: "https://picsum.photos/id/160/800/600", 
+          shortDesc: "Modernizer of Japan", 
+          role: "Symbol of Meiji Restoration",
+          reforms: "Industrialized Japan, adopted Western systems",
+          sacrifice: "Carried burden of rapid transformation on his shoulders",
+          quote: "Enrich the country, strengthen the military."
+        },
+        { 
+          name: "Kusunoki Masashige", 
+          image: "https://picsum.photos/id/29/800/600", 
+          shortDesc: "Loyal Samurai", 
+          role: "Defender of Emperor",
+          reforms: "Exemplified bushido code of loyalty",
+          sacrifice: "Died in battle after heroic last stand",
+          quote: "I will return seven times to serve my emperor."
+        },
+        { 
+          name: "Hiroo Onoda", 
+          image: "https://picsum.photos/id/318/800/600", 
+          shortDesc: "Last Samurai", 
+          role: "Soldier who continued fighting after WWII",
+          reforms: "Symbol of unwavering duty and perseverance",
+          sacrifice: "Lived in jungle isolation for 29 years",
+          quote: "Duty is heavier than a mountain."
+        },
+        { 
+          name: "Yukio Mishima", 
+          image: "https://picsum.photos/id/201/800/600", 
+          shortDesc: "Literary Patriot", 
+          role: "Writer and traditionalist",
+          reforms: "Called for revival of samurai spirit",
+          sacrifice: "Committed ritual seppuku in 1970",
+          quote: "Beauty is a form of courage."
+        },
+        { 
+          name: "Empress Michiko", 
+          image: "https://picsum.photos/id/64/800/600", 
+          shortDesc: "People's Empress", 
+          role: "Modern symbol of reconciliation",
+          reforms: "Brought warmth and accessibility to monarchy",
+          sacrifice: "Faced severe stress and health issues from royal duties",
+          quote: "Peace begins in the heart."
+        }
+      ]
+    };
+
+    let currentCountry = "Nepal";
+
+    function generateCountryTabs() {
+      const tabsContainer = document.getElementById('countryTabs');
+      tabsContainer.innerHTML = '';
+      
+      Object.keys(heroesData).forEach(country => {
+        const isActive = country === currentCountry ? 'bg-[#d4a017] text-[#3c2f1e] font-bold' : 'bg-[#2c2118] hover:bg-[#8c6f4e]';
+        const tab = document.createElement('button');
+        tab.className = `px-8 py-3 rounded-full text-lg transition-all border border-[#8c6f4e] ${isActive}`;
+        tab.textContent = country;
+        tab.onclick = () => {
+          currentCountry = country;
+          generateCountryTabs();
+          generateHeroes();
+        };
+        tabsContainer.appendChild(tab);
+      });
+    }
+
+    function generateHeroes() {
+      const container = document.getElementById('heroesGrid');
+      container.innerHTML = '';
+      
+      const heroes = heroesData[currentCountry] || [];
+      
+      heroes.forEach(hero => {
+        const cardHTML = `
+          <div onclick="showHeroModal('${currentCountry}', '${hero.name}')" class="card rounded-2xl overflow-hidden cursor-pointer">
+            <div class="relative">
+              <img src="${hero.image}" class="w-full h-60 object-cover">
+              <div class="absolute top-4 left-4 bg-black/70 px-4 py-1 rounded text-sm text-white">
+                ${currentCountry}
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="vintage-text text-2xl text-[#d4a017]">${hero.name}</h4>
+              <p class="text-[#8c6f4e] mt-1">${hero.shortDesc}</p>
+              <div class="mt-6 flex items-center gap-2 text-xs uppercase tracking-widest text-[#8c6f4e]">
+                <i class="fa-solid fa-book"></i>
+                ROLE • REFORM • SACRIFICE
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += cardHTML;
+      });
+    }
+
+    function showHeroModal(country, name) {
+      const heroes = heroesData[country];
+      const hero = heroes.find(h => h.name === name);
+      if (!hero) return;
+
+      document.getElementById('modalImage').src = hero.image;
+      document.getElementById('modalCountry').innerHTML = `${country} • ${name}`;
+      document.getElementById('modalName').textContent = hero.name;
+      document.getElementById('roleText').textContent = hero.role;
+      document.getElementById('reformText').textContent = hero.reforms;
+      document.getElementById('sacrificeText').textContent = hero.sacrifice;
+      document.getElementById('modalQuote').textContent = `"${hero.quote}"`;
+
+      const modal = document.getElementById('heroModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('heroModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function speakWelcome() {
+      if ('speechSynthesis' in window) {
+        const msg = new SpeechSynthesisUtterance(
+          "Welcome... to the uncovered truth. Here you will discover the role, reforms, and ultimate sacrifices of 49 heroes from seven great nations. Enter now... and remember."
+        );
+        msg.pitch = 0.75;
+        msg.rate = 0.82;
+        msg.volume = 0.95;
+        speechSynthesis.speak(msg);
+      } else {
+        alert("Voice narration not supported, but the museum welcomes you!");
+      }
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("✅ Thank you! Your message has been received. We will reply to kunwargaurav832@gmail.com soon.\n\nSuggestions for new countries or heroes are always welcome!");
+      e.target.reset();
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    window.onload = function() {
+      generateCountryTabs();
+      generateHeroes();
+
+      setTimeout(() => {
+        speakWelcome();
+      }, 1800);
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    };
+  </script>
+</body>
+</html>
